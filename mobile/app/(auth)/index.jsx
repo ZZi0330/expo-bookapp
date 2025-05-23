@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator, KeyboardAvoidingView, Platform } from 'react-native'
+import { View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import styles from '../../assets/styles/login.styles'
 import { Ionicons } from '@expo/vector-icons'
@@ -24,6 +24,7 @@ const Login = () => {
       style={{ flex:1 }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
      <View style={styles.container}>
       <View style={styles.topIllustration}>
         <Image 
@@ -52,7 +53,7 @@ const Login = () => {
                  placeholderTextColor={COLORS.placeholderText}
                  value={email}
                  onChangeText={setEmail}
-                 keyboardType='email-address'
+                //  keyboardType='email-address'
                  autoCapitalize='none'
                />
             </View>
@@ -111,6 +112,7 @@ const Login = () => {
         </View>
       </View>
      </View>
+     </ScrollView>
     </KeyboardAvoidingView>
   )
 }

@@ -1,4 +1,4 @@
-import { View, Text, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, ActivityIndicator, Alert } from 'react-native'
+import { View, Text, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, ActivityIndicator, Alert, ScrollView } from 'react-native'
 import styles from '../../assets/styles/signup.styles'
 import { Ionicons } from '@expo/vector-icons'
 import COLORS from '../../constants/colors'
@@ -30,6 +30,7 @@ const Signup = () => {
     style={{ flex:1 }}
     behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
     <View style={styles.container}>
       <View style={styles.card}>
 
@@ -76,7 +77,7 @@ const Signup = () => {
                  placeholderTextColor={COLORS.placeholderText}
                  value={email}
                  onChangeText={setEmail}
-                 keyboardType='email-address'
+                //  keyboardType='email-address'
                  autoCapitalize='none'
                />
             </View>
@@ -132,7 +133,7 @@ const Signup = () => {
 
       </View>
     </View>
-
+   </ScrollView>
   </KeyboardAvoidingView>
   )
 }
